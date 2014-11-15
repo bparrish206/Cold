@@ -9,7 +9,7 @@ grunt.initConfig({
       curly: true,
       eqeqeq: true
     },
-    target1: ['Gruntfile.js', 'index.js','public/**/*.js', 'public/**/.html', 'src/**/*.js']
+    target1: ['Gruntfile.js', 'index.js','public/**/*.js', 'public/**/*.html', 'src/**/*.js']
   },
 
   jscs: {
@@ -42,7 +42,7 @@ grunt.initConfig({
     "typeof",
 ]
     },
-  target2: ['Gruntfile.js', 'index.js', 'public/**/*.js', 'public/**/.html', 'src/**/*.js']
+  target2: ['Gruntfile.js', 'index.js', 'public/**/*.js', 'public/**/*.html', 'src/**/*.js']
 },
 });
 
