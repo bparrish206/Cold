@@ -24,16 +24,14 @@ var url = "http://api.wunderground.com/api/" + key + "/geolookup/conditions/q/" 
       var loc = weather.display_location.full;
       var cond = weather.weather;
       var temp = urlData.body.current_observation.temp_f;
-
       var wazTemp = function(temp){
         if (temp < 60 && temp > 50){
         return temp + "safe long sleeves are a where its at";
       }
       else if (temp < 50) {
-        return temp + "\n Nope, I'm safe, but a jacket is probably a good idea.";
+        return temp + " F Nope, I'm safe, but a jacket is probably a good idea.";
       } else {return temp + " Better pass out the shades so you don't blind someone with those pasty arms";}
-    };
-
-      res.send({location: loc, current_temps: wazTemp(temp), conditions: cond});
+      };
+    res.send({location: loc, current_temps: wazTemp(temp), conditions: cond});
   });
 });
