@@ -9,7 +9,7 @@ grunt.initConfig({
       curly: true,
       eqeqeq: true
     },
-    target1: ['Gruntfile.js', 'index.js', 'src/**/*.js']
+    target1: ['Gruntfile.js', 'index.js','public/**/*.js', 'public/**/.html', 'src/**/*.js']
   },
 
   jscs: {
@@ -42,9 +42,9 @@ grunt.initConfig({
     "typeof",
 ]
     },
-  target2: ['Gruntfile.js', 'index.js', 'src/**/*.js']
+  target2: ['Gruntfile.js', 'index.js', 'public/**/*.js', 'public/**/.html', 'src/**/*.js']
 },
-  });
+});
 
 grunt.registerTask('test', ['jshint', 'jscs']);
 grunt.registerTask('default', ['test']);
