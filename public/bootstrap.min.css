@@ -6,4 +6,18 @@
 
 div {
   background-color: #b0c4de;
+  padding: 25px;
+  margin: 0px 100 0px 100;
+}
+
+#temp {
+  color:white;
+}
+
+#cond {
+  color: white;
+}
+
+h1 {
+  margin-left:100px
 }

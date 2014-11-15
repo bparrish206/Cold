@@ -9,10 +9,10 @@ app.listen(app.get('port'), function() {
   console.log('server running on port: ' + app.get('port'));
 });
 
-//app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.get('/', function(req, res){
+app.post('/', function(req, res){
 var key = '828e3a84bb61c1a2';
 var url = "http://api.wunderground.com/api/" + key + "/geolookup/conditions/q/" + 'autoip/'+ ".json";
 
@@ -27,13 +27,13 @@ var url = "http://api.wunderground.com/api/" + key + "/geolookup/conditions/q/" 
 
       var wazTemp = function(temp){
         if (temp < 60 && temp > 50){
-        return temp + " Your safe long sleeves are a where its at";
+        return temp + "safe long sleeves are a where its at";
       }
       else if (temp < 50) {
-        return temp + " A jacket is probably a good idea.";
-      } else {return temp + " Better pass out the shades so you don't blind some one with those pasty arms";}
+        return temp + "\n Nope, I'm safe, but a jacket is probably a good idea.";
+      } else {return temp + " Better pass out the shades so you don't blind someone with those pasty arms";}
     };
 
-      res.json({"Location": loc, "Current temps": wazTemp(temp), "conditions": cond});
+      res.send({location: loc, current_temps: wazTemp(temp), conditions: cond});
   });
 });
