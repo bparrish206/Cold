@@ -1,16 +1,22 @@
 $(document).ready(function(){
-  var lat;
-  var lon;
-  if ('geolocation' in navigator) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      lat = position.coords.latitude;
-      lon = position.coords.longitude;
+var x = document.getElementById("demo");
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude +
+    "<br>Longitude: " + position.coords.longitude;
+}
 
 $.post('/', function(urlData) {
+
             $('#loc').append('Location: ' + urlData.location);
             $('#temp').append('Temperature: ' + urlData.current_temps);
-            $('#cond').append('Conditions: ' + urlData.conditions);
-          });
+            $('#cond').append('Conditions: ' + UrlData.conditions);
         });
-}
-});
+      });
+    
