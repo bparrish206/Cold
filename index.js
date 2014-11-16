@@ -3,9 +3,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var request = require('superagent');
 var app = express();
-//var https = require('https');
 
-//https.createServer()
 app.set('port', process.env.PORT || 3000);
 app.listen(app.get('port'), function() {
   console.log('server running on port: ' + app.get('port'));
@@ -15,11 +13,13 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.post('/', function(req, res){
+var lat = req.body.lat;
+var long = req.body.lon;
 var key = '828e3a84bb61c1a2';
-var url = "http://api.wunderground.com/api/" + key + "/geolookup/conditions/q/" + 'autoip/'+ ".json";
+var url = "http://api.wunderground.com/api/" + key + "/geolookup/conditions/q/" + lat + ','+ long + ".json";
 
   request
-    .get(url)
+
     .end(function (err, urlData){
       if(err) throw err;
       var weather = urlData.body.current_observation;
