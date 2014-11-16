@@ -13,9 +13,10 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.post('/', function(req, res){
-
+var lat = req.body.latitude;
+var lon = req.body.longitude;
 var key = '828e3a84bb61c1a2';
-var url = "http://api.wunderground.com/api/" + key + "/geolookup/conditions/q/" + "autoip/" + ".json";
+var url = "http://api.wunderground.com/api/" + key + "/geolookup/conditions/q/" + lat + ',' + lon + ".json";
 
   request
 
