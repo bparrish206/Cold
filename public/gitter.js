@@ -7,7 +7,7 @@ $(document).ready(function(){
   lat = position.coords.latitude;
   lon = position.coords.longitude;
       $.post('/', function(urlData) {
-            $('#loc').append('Location: ' + urlData.location);
+            //$('#loc').append('Location: ' + urlData.location);
             $('#temp').append('Temperature: ' + urlData.current_temps);
             $('#cond').append('Conditions: ' + urlData.conditions);
         });

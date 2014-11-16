@@ -13,13 +13,13 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.post('/', function(req, res){
-
 var key = '828e3a84bb61c1a2';
 var url = "http://api.wunderground.com/api/" + key + "/geolookup/conditions/q/" + 'autoip/' + ".json";
 
   request
     .get(url)
     .end(function (err, urlData){
+      var parsedBody = JSON.parse(urlData.text);
       if(err) throw err;
       var weather = urlData.body.current_observation;
       var loc = weather.display_location.full;
