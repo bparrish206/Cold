@@ -1,15 +1,29 @@
-$(document).ready(function(){
-  var lat;
-  var lon;
-  var urlData = {"latitude": lat, "longitude": lon};
+function showLocation(position) {
+var latitude = position.coords.latitude;
+var longitude = position.coords.longitude;
 
-  navigator.geolocation.getCurrentPosition(function(position) {
-  lat = position.coords.latitude;
-  lon = position.coords.longitude;
-      $.post('/', function(urlData) {
-            //$('#loc').append('Location: ' + urlData.location);
+      $.ajax({
+        url: '/',
+        type: 'POST',
+        urlData: {lat:latitude, lon: longitude},
+        success: function(urlData) {
+            $('#loc').append('Location: ' + urlData.location);
             $('#temp').append('Temperature: ' + urlData.current_temps);
             $('#cond').append('Conditions: ' + urlData.conditions);
-        });
+            $('#box').append('<img src="'+urlData.outside+'">');
+        }
       });
-});
+    }
+
+$(document).ready(function() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showLocation, function(err) {
+      if (err) {
+        $('#space')
+        .html('<p>You Must Allow Access to Your Location to Find Out.</p>');
+      }
+    });
+  } else {
+    $('#space').html('<p>Unable to Locate You.</p>');
+  }
+}());
