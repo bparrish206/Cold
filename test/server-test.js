@@ -3,18 +3,18 @@
 var chai = require('chai');
 var chaihttp = require("chai-http");
 var expect = chai.expect;
-require('../server');
+require('../index.js');
 chai.use(chaihttp);
-var port = process.env.PORT || 3000;
 
-var url = 'http://localhost:' + port;
+var url = 'http://localhost:3000/';
 describe('checking the temperature in Seattle', function() {
   it('should return the temperature', function(done) {
-      chai.request(url)
-      .get('/current/Seattle')
+      chai.request('https://currentweather.herokuapp.com/')
+      .get('/')
       .end(function(err,res){
-          expect(res.body).to.include.keys('temp');
-          done();
+        expect(err).to.eql(null);
+        expect(res.type).to.eql('text/html');
+        done();
       });
     });
-  })
+  });

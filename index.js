@@ -8,10 +8,9 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.post('/', function(req, res){
-
 var url = "http://api.wunderground.com/api/" + '828e3a84bb61c1a2' + "/geolookup/conditions/q/" + 'WA/Seattle' +   ".json";
 
-  request
+    request
     .get(url)
     .end(function (err, urlData){
       var parsedBody = JSON.parse(urlData.text);
@@ -27,7 +26,7 @@ var url = "http://api.wunderground.com/api/" + '828e3a84bb61c1a2' + "/geolookup/
         return temp + " F Nope, I'm safe, but a jacket is probably a good idea.";
       } else {return temp + " Better pass out the shades so you don't blind someone with those pasty arms";}
       };
-    res.send({location: 'Seattle', current_temps: wazTemp(temp), conditions: cond, outside:icon });
+    res.send({location: "Seattle", current_temps: wazTemp(temp), conditions: cond, outside:icon });
   });
 });
 
