@@ -1,5 +1,11 @@
-var express = require('express');
-var bodyparser = require('body-parser');
-var app = express();
+module.exports = function(grunt){
+  grunt.loadNpmTasks('grunt-simple-mocha');
 
-app.use(express.static('public'));
+  grunt.initConfig({
+
+    simplemocha: {
+      src: ['test/weatherTest.js']
+    }
+  });
+  grunt.registerTask('default', ['simplemocha']);
+};
