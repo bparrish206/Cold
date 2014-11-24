@@ -13,7 +13,7 @@ describe('checking the temperature in Seattle', function() {
       chai.request(url)
       .get('/')
       .end(function(err,res){
-        expect(res.statusCode).to.eql(200);
+        expect(res.status).to.eql(200);
         done();
       });
     });
