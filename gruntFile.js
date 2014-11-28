@@ -3,7 +3,6 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-browserify');
 
-
   grunt.initConfig({
     clean:{
       dev:{

@@ -1,11 +1,11 @@
 'use strict';
 
 var logDate = function(){
-  console.log(new Date().getDate());
+  return new Date().getDate();
 };
 
 var logMonth = function() {
-  console.log(new Date().getMonth());
+  return new Date().getMonth();
 };
 
 exports.logDate = logDate;

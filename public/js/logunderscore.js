@@ -3,7 +3,7 @@
 var _ = require('underscore');
 
 var logUnderscoreVersion = function(){
-  console.log(_.VERSION);
+  return _.VERSION;
 }
 
-moduel.exports = logUnderscoreVersion;
+module.exports = logUnderscoreVersion;
