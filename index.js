@@ -9,7 +9,7 @@ app.listen(app.get('port'), function() {
   console.log('server running on port: ' + app.get('port'));
 });
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/build'));
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.post('/', function(req, res){
