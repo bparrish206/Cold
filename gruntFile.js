@@ -17,10 +17,11 @@ module.exports = function(grunt){
       expand:true,
       dest: 'build/'
     }
-  },
+},
 
   browserify: {
     dev: {
+      require : { jquery : 'jquery-browserify' },
       src: ['public/js/**/*.js'],
       dest: 'build/bundle.js',
       options: {
