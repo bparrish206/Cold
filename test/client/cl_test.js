@@ -22,7 +22,7 @@ describe('some test', function(){
   });
 
   it('should test date', function(){
-    expect(date).to.eql(28);
+    expect(date).to.eql(29);
   });
 
 });

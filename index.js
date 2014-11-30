@@ -9,7 +9,7 @@ app.listen(app.get('port'), function() {
   console.log('server running on port: ' + app.get('port'));
 });
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/build'));
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.post('/', function(req, res){
@@ -28,7 +28,7 @@ var url = "http://api.wunderground.com/api/" + process.env.APIKEY + "/geolookup/
       var wazTemp = function(temp){
         if (temp < 60 && temp > 50){
         return temp + "F safe long sleeves are a where its at";
-      }
+            }
       else if (temp < 50) {
         return temp + "\n F Nope, I'm safe, but a jacket is probably a good idea.";
       } else {return temp + "F Better pass out the shades so you don't blind someone with those pasty arms";}

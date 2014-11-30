@@ -15,14 +15,14 @@ module.exports = function(grunt){
       cwd: 'public/',
       src: ['**/*/html', 'css/**/*.css'],
       expand:true,
-      dest: 'build/'
+      dest: 'build'
     }
 },
 
-  browserify: {
+browserify: {
     dev: {
       require : { jquery : 'jquery-browserify' },
-      src: ['public/js/**/*.js'],
+      src: ['public/js**/*.js'],
       dest: 'build/bundle.js',
       options: {
         transform: ['debowerify']
