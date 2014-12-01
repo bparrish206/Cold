@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
-var _ = require('underscore');
+var _ = require("underscore");
 
-var logUnderscoreVersion = function(){
+var logUnderscoreVersion = function() {
   return _.VERSION;
-}
+};
 
 module.exports = logUnderscoreVersion;

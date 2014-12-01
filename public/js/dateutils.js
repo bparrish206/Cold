@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-var logDate = function(){
+var logDate = function() {
   return new Date().getDate();
 };
 
