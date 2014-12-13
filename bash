@@ -1,2 +1,0 @@
-export WUNDERAPI=828e3a84bb61c1a2
-
