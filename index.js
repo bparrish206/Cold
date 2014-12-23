@@ -16,23 +16,28 @@ app.post('/', function(req, res){
 
 var url = "http://api.wunderground.com/api/" + process.env.APIKEY + "/geolookup/conditions/q/" + 'autoip/'+ ".json";
 
-  request
+    request
     .get(url)
     .end(function (err, urlData){
+      var parsedBody = JSON.parse(urlData.text);
       if(err) throw err;
-      var weather = urlData.body.current_observation;
-      var loc = weather.display_location.full;
-      var cond = weather.weather;
-      var temp = urlData.body.current_observation.temp_f;
-
+      var cond = parsedBody.current_observation.weather;
+      var icon = parsedBody.current_observation.icon_url;
+      var temp = parsedBody.current_observation.temp_f;
       var wazTemp = function(temp){
         if (temp < 60 && temp > 50){
         return temp + "F safe long sleeves are a where its at";
             }
       else if (temp < 50) {
-        return temp + "\n F Nope, I'm safe, but a jacket is probably a good idea.";
-      } else {return temp + "F Better pass out the shades so you don't blind someone with those pasty arms";}
-    };
-      res.send({location: loc, current_temps: wazTemp(temp), conditions: cond});
+
+        return temp + " F Nope, I'm safe, but a jacket is probably a good idea.";
+      } else {return temp + " Better pass out the shades so you don't blind someone with those pasty arms";}
+      };
+    res.send({location: "Seattle", current_temps: wazTemp(temp), conditions: cond, outside:icon });
   });
 });
+
+app.set('port', process.env.PORT || 3000);
+app.listen(app.get('port'), function() {
+  console.log('server running on port: ' + app.get('port'));
+  });
