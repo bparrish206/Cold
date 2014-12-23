@@ -1,2 +1,6 @@
 node_modules
-hidden_dawn-2289/
+build/
+bower_components
+test/test_bundle.js
+**/*.sw?
+hidden-dawn-2289

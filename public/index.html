@@ -11,45 +11,15 @@
     <h1>Current Weather</h1>
     <p is="space"> </p>
     <div id="box">
+      <h4 id="Date"> </h4>
     <h4 id = "loc"> </h4>
     <h3 id="sub"> Will anyone see my pasty arms today?  </h3>
     <h4 id ="temp">    </h4>
     <h4 id = "cond">  </h4>
-    <img id="icon" src="" height="42" width="42">
     </div>
-  <p><button onclick="geoFindMe()">Show my location</button></p>
-  <div id="out"></div>
-<script src= "https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src= "https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
-<script src="gitter.js"></script>
-<!-- I got this code off a google search I think from w3 schools -->
-<script>
-function geoFindMe() {
-  var output = document.getElementById("out");
-  if (!navigator.geolocation){
-    output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
-    return;
-  }
-
-  function success(position) {
-    var latitude  = position.coords.latitude;
-    var longitude = position.coords.longitude;
-    var img = new Image();
-    img.src = "http://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
-
-    output.appendChild(img);
-  }
-
-  function error() {
-    output.innerHTML = "Unable to retrieve your location";
-  }
-
-  output.innerHTML = "<p>Locating…</p>";
-
-  navigator.geolocation.getCurrentPosition(success, error);
-}
-</script>
-
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+ <script src ="bundle.js"></script>
+ <script src="js/ajax.js"></script>
+  
   </body>
   </html>
