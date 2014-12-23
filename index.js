@@ -4,17 +4,12 @@ var bodyParser = require('body-parser');
 var request = require('superagent');
 var app = express();
 
-app.set('port', process.env.PORT || 3000);
-app.listen(app.get('port'), function() {
-  console.log('server running on port: ' + app.get('port'));
-});
-
-app.use(express.static(__dirname + '/build'));
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.post('/', function(req, res){
 
-var url = "http://api.wunderground.com/api/" + process.env.APIKEY + "/geolookup/conditions/q/" + 'autoip/'+ ".json";
+var url = "http://api.wunderground.com/api/" + '828e3a84bb61c1a2' + "/geolookup/conditions/q/" + 'autoip/'+ ".json";
 
     request
     .get(url)
@@ -37,7 +32,5 @@ var url = "http://api.wunderground.com/api/" + process.env.APIKEY + "/geolookup/
   });
 });
 
-app.set('port', process.env.PORT || 3000);
-app.listen(app.get('port'), function() {
-  console.log('server running on port: ' + app.get('port'));
-  });
+app.listen(3000);
+module.exports = app;
