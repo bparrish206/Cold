@@ -17,7 +17,7 @@
   "devDependencies": {
     "browserifY": "^6.3.3",
     "chai": "^1.10.0",
-    "chai-http": "^1.0.0",
+    "chai-http": "^5.0.0",
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-jscs": "^1.0.0",
     "debowerify": "^1.0.1",
