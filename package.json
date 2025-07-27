@@ -11,13 +11,13 @@
   "dependencies": {
     "express": "^4.10.2",
     "jscs": "~1.7.2",
-    "superagent": "^0.21.0",
+    "superagent": "^10.2.2",
     "body-parser": "^1.9.2"
   },
   "devDependencies": {
     "browserifY": "^6.3.3",
     "chai": "^1.10.0",
-    "chai-http": "^1.0.0",
+    "chai-http": "^5.1.2",
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-jscs": "^1.0.0",
     "debowerify": "^1.0.1",
